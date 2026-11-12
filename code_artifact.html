@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학교폭력예방 및 학생의 이해 | 교육학 전공 필수 가이드</title>
+    <!-- Tailwind CSS 로드 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Noto Sans KR & Pretendard 스타일 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome 아이콘 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans KR"', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            900: '#0F172A',
+                            800: '#1E293B',
+                            700: '#334155',
+                        },
+                        teal: {
+                            600: '#0D9488',
+                            700: '#0F766E',
+                            50: '#F0FDFA',
+                        },
+                        sage: {
+                            100: '#E2E8F0',
+                            50: '#F8FAFC',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 커스텀 스크롤바 및 미세 애니메이션 */
+        body {
+            background-color: #F8FAFC;
+            color: #1E293B;
+            word-break: keep-all;
+        }
+        .tab-active {
+            background-color: #0F172A;
+            color: #FFFFFF;
+            border-color: #0F172A;
+        }
+        .fade-in {
+            animation: fadeIn 0.35s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-teal-600 selection:text-white">
+
+    <!-- 상단 고정 네비게이션 바 -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- 로고 / 과목명 -->
+                <a href="#" class="flex items-center space-x-2.5 group">
+                    <div class="w-9 h-9 rounded-xl bg-navy-900 text-white flex items-center justify-center shadow-sm group-hover:bg-teal-600 transition-colors">
+                        <i class="fa-solid fa-graduation-cap text-base"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs font-bold tracking-wider text-teal-600 uppercase block">Pedagogy Core</span>
+                        <span class="text-base sm:text-lg font-bold text-navy-900 leading-none">학교폭력예방 및 학생의 이해</span>
+                    </div>
+                </a>
+
+                <!-- 데스크톱 메뉴 -->
+                <nav class="hidden md:flex space-x-1 lg:space-x-2">
+                    <a href="#overview" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy-900 hover:bg-slate-100 transition">강의 개요</a>
+                    <a href="#curriculum" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy-900 hover:bg-slate-100 transition">핵심 커리큘럼</a>
+                    <a href="#types-dynamics" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy-900 hover:bg-slate-100 transition">유형 및 심리역동</a>
+                    <a href="#process" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-600 hover:text-navy-900 hover:bg-slate-100 transition">사안처리 절차</a>
+                    <a href="#quiz" class="px-3.5 py-2 rounded-lg text-sm font-semibold bg-teal-600 text-white hover:bg-teal-700 transition shadow-sm">예비교사 퀴즈</a>
+                </nav>
+
+                <!-- 모바일 햄버거 버튼 -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 focus:outline-none" aria-label="메뉴 열기">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- 모바일 드롭다운 메뉴 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1">
+            <a href="#overview" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">강의 개요</a>
+            <a href="#curriculum" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">핵심 커리큘럼</a>
+            <a href="#types-dynamics" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">유형 및 심리역동</a>
+            <a href="#process" class="block px-3 py-2.5 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-100">사안처리 절차</a>
+            <a href="#quiz" class="block px-3 py-2.5 rounded-lg text-base font-semibold text-teal-700 bg-teal-50">예비교사 자가진단 퀴즈</a>
+        </div>
+    </header>
+
+    <!-- 1. Hero Section -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900 text-white py-16 sm:py-24">
+        <!-- 배경 장식 패턴 -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-teal-400 blur-3xl"></div>
+            <div class="absolute bottom-0 left-10 w-72 h-72 rounded-full bg-blue-500 blur-3xl"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-teal-500/20 border border-teal-400/30 text-teal-300 text-xs sm:text-sm font-semibold mb-6">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <span>교직소양 필수 이수 과목 (2학점) | 예비교사 역량 강화</span>
+                </div>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight mb-6">
+                    교육학 전공 필수:<br>
+                    <span class="text-teal-400">학교폭력예방 및 학생의 이해</span>
+                </h1>
+                <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-8 font-light">
+                    예비 교사가 학교 현장에서 반드시 갖추어야 할 학교폭력의 이론적 기초, 
+                    관련 법령(학교폭력예방법), 객관적 사안 처리 프로세스 및 회복적 생활교육 실천 방안을 체계적으로 학습합니다.
+                </p>
+
+                <!-- 빠른 탐색 버튼 그룹 -->
+                <div class="flex flex-wrap gap-3">
+                    <a href="#overview" class="px-5 py-3 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-semibold text-sm sm:text-base transition shadow-lg shadow-teal-950/50 flex items-center gap-2">
+                        <i class="fa-solid fa-book-open"></i> 강의 개요
+                    </a>
+                    <a href="#curriculum" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/15 text-white font-medium text-sm sm:text-base transition flex items-center gap-2">
+                        <i class="fa-solid fa-layer-group"></i> 핵심 커리큘럼
+                    </a>
+                    <a href="#types-dynamics" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/15 text-white font-medium text-sm sm:text-base transition flex items-center gap-2">
+                        <i class="fa-solid fa-users-viewfinder"></i> 유형 및 원인
+                    </a>
+                    <a href="#process" class="px-5 py-3 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/15 text-white font-medium text-sm sm:text-base transition flex items-center gap-2">
+                        <i class="fa-solid fa-scale-balanced"></i> 법령 및 사안처리
+                    </a>
+                    <a href="#quiz" class="px-5 py-3 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-400/40 text-amber-200 font-semibold text-sm sm:text-base transition flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check"></i> 자가진단 퀴즈
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. 과목 개요 (Course Overview) -->
+    <section id="overview" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-teal-600 font-bold text-sm tracking-wider uppercase">Course Overview</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 mt-1 mb-3">과목 의의 및 핵심 학습 목표</h2>
+            <p class="text-slate-600 text-sm sm:text-base">
+                교원자격검정령에 따른 교직소양 필수 과목으로서, 안전한 학교 공동체 구축과 학생의 전인적 성장을 돕는 교사의 책무성을 다룹니다.
+            </p>
+        </div>
+
+        <!-- 교직 이수 의의 배너 -->
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm mb-8 flex flex-col md:flex-row items-start md:items-center gap-6">
+            <div class="w-14 h-14 rounded-2xl bg-navy-900 text-teal-400 flex items-center justify-center shrink-0 text-2xl shadow-md">
+                <i class="fa-solid fa-chalkboard-user"></i>
+            </div>
+            <div>
+                <h3 class="text-lg sm:text-xl font-bold text-navy-900 mb-2">교직 이수 필수 과목으로서의 의의</h3>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+                    단순히 학교폭력 사안 발생 후의 행정적·법적 처벌 절차를 암기하는 것을 넘어, <strong>아동·청소년기의 발달 특성과 또래 집단의 심리적 역동을 깊이 이해</strong>하는 데 목적이 있습니다. 이를 통해 예방 중심의 학급 경영을 설계하고, 갈등 발생 시 교육적·회복적 개입을 수행할 수 있는 전문성을 함양합니다.
+                </p>
+            </div>
+        </div>
+
+        <!-- 3대 학습 목표 카드 -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- 목표 1 -->
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-11 h-11 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center font-bold text-lg mb-4">
+                    01
+                </div>
+                <h4 class="text-lg font-bold text-navy-900 mb-2">학교폭력의 개념과 실태 이해</h4>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    법률상 학교폭력의 정의와 다양한 유형(사이버폭력, 관계적 따돌림 등)을 파악하고, 다원적 발생 원인을 심리·사회·생태학적 관점에서 분석합니다.
+                </p>
+            </div>
+
+            <!-- 목표 2 -->
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-11 h-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-lg mb-4">
+                    02
+                </div>
+                <h4 class="text-lg font-bold text-navy-900 mb-2">법적·제도적 대응 역량 강화</h4>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    「학교폭력예방 및 대책에 관한 법률」에 근거한 사안 인지, 초기 대응, 전담기구 조사, 학교장 자체해결제 및 심의위원회 요청 절차를 숙지합니다.
+                </p>
+            </div>
+
+            <!-- 목표 3 -->
+            <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-shadow">
+                <div class="w-11 h-11 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-lg mb-4">
+                    03
+                </div>
+                <h4 class="text-lg font-bold text-navy-900 mb-2">상담 및 회복적 생활교육 실천</h4>
+                <p class="text-slate-600 text-sm leading-relaxed">
+                    응보적 처벌의 한계를 보완하는 회복적 정의(Restorative Justice) 패러다임을 적용하여, 피해 학생의 치유와 공동체 관계 회복을 이끄는 지도 역량을 기릅니다.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 핵심 커리큘럼 (Interactive Syllabus / Modules) -->
+    <section id="curriculum" class="py-16 sm:py-20 bg-slate-100/80 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-teal-600 font-bold text-sm tracking-wider uppercase">Core Curriculum</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 mt-1 mb-3">4대 핵심 강의 모듈</h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    각 모듈 탭을 선택하여 주차별 주요 학습 내용과 교육학적 핵심 키워드를 확인하세요.
+                </p>
+            </div>
+
+            <!-- 모듈 탭 버튼 -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3 mb-6" role="tablist">
+                <button onclick="switchModule(0)" id="tab-0" class="module-tab tab-active px-4 py-3.5 rounded-xl border border-slate-300 bg-white text-left transition-all shadow-sm focus:outline-none">
+                    <span class="text-xs font-bold opacity-75 block mb-0.5">MODULE 01</span>
+                    <span class="text-sm sm:text-base font-bold block truncate">개념·특성 및 최신 동향</span>
+                </button>
+                <button onclick="switchModule(1)" id="tab-1" class="module-tab px-4 py-3.5 rounded-xl border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 text-left transition-all shadow-sm focus:outline-none">
+                    <span class="text-xs font-bold text-teal-600 block mb-0.5">MODULE 02</span>
+                    <span class="text-sm sm:text-base font-bold block truncate">발생 원인 및 이론적 배경</span>
+                </button>
+                <button onclick="switchModule(2)" id="tab-2" class="module-tab px-4 py-3.5 rounded-xl border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 text-left transition-all shadow-sm focus:outline-none">
+                    <span class="text-xs font-bold text-teal-600 block mb-0.5">MODULE 03</span>
+                    <span class="text-sm sm:text-base font-bold block truncate">학교폭력예방법과 사안처리</span>
+                </button>
+                <button onclick="switchModule(3)" id="tab-3" class="module-tab px-4 py-3.5 rounded-xl border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 text-left transition-all shadow-sm focus:outline-none">
+                    <span class="text-xs font-bold text-teal-600 block mb-0.5">MODULE 04</span>
+                    <span class="text-sm sm:text-base font-bold block truncate">예방교육 및 회복적 생활지도</span>
+                </button>
+            </div>
+
+            <!-- 모듈 상세 콘텐츠 패널 -->
+            <div id="module-content" class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm fade-in">
+                <!-- JavaScript로 동적 렌더링 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 학교폭력의 유형 및 심리적 역동 (Types & Dynamics) -->
+    <section id="types-dynamics" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <span class="text-teal-600 font-bold text-sm tracking-wider uppercase">Types & Group Dynamics</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 mt-1 mb-3">학교폭력의 주요 유형과 참여자 역동</h2>
+            <p class="text-slate-600 text-sm sm:text-base">
+                학교폭력은 단순한 1:1 갈등이 아닌 학급이라는 집단 역동 속에서 발생하는 현상입니다.
+            </p>
+        </div>
+
+        <!-- 학교폭력 6대 주요 유형 카드 그리드 -->
+        <h3 class="text-lg sm:text-xl font-bold text-navy-900 mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-shapes text-teal-600"></i> 법령상 학교폭력의 주요 유형
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-14">
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-teal-400 transition">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-10 h-10 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-lg"><i class="fa-solid fa-hand-fist"></i></span>
+                    <h4 class="font-bold text-navy-900">신체폭력 및 감금·약취</h4>
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed">신체를 직접 가격하거나 장난을 빙자한 폭행, 특정 공간에 가두거나 이동을 제한하는 일체의 물리적 행위입니다.</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-teal-400 transition">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-lg"><i class="fa-solid fa-comment-slash"></i></span>
+                    <h4 class="font-bold text-navy-900">언어폭력 및 명예훼손·모욕</h4>
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed">실태조사에서 가장 높은 비중을 차지하며, 욕설, 협박, 조롱, 외모 비하, 악의적 소문 유포 등을 포함합니다.</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-teal-400 transition">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-lg"><i class="fa-solid fa-mobile-screen-button"></i></span>
+                    <h4 class="font-bold text-navy-900">사이버폭력 (Cyberbullying)</h4>
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed">SNS·메신저를 통한 집단 따돌림(카톡 감옥), 사이버 명예훼손, 신상 털기, 불법 촬영물 유포 등 시공간 제약 없는 폭력입니다.</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-teal-400 transition">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-lg"><i class="fa-solid fa-user-slash"></i></span>
+                    <h4 class="font-bold text-navy-900">따돌림 (관계적 폭력)</h4>
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed">집단 내에서 특정 학생을 의도적으로 배제·무시하거나, 다른 친구들과 어울리지 못하도록 고립시키는 은밀한 폭력입니다.</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-teal-400 transition">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-lg"><i class="fa-solid fa-coins"></i></span>
+                    <h4 class="font-bold text-navy-900">금품갈취 및 강요</h4>
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed">돈이나 물건을 빼앗고 돌려주지 않거나, 억지로 심부름·과제 대행·폭력 행위 동참 등을 강요하는 행위입니다.</p>
+            </div>
+
+            <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:border-teal-400 transition">
+                <div class="flex items-center gap-3 mb-3">
+                    <span class="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-lg"><i class="fa-solid fa-shield-cat"></i></span>
+                    <h4 class="font-bold text-navy-900">성폭력 및 디지털 성범죄</h4>
+                </div>
+                <p class="text-sm text-slate-600 leading-relaxed">성적 수치심을 유발하는 언행(성희롱), 원치 않는 신체 접촉, 딥페이크 합성 및 성착취물 제작·유포를 포함합니다.</p>
+            </div>
+        </div>
+
+        <!-- Salmivalli의 참여자 역할 이론 -->
+        <div class="bg-navy-900 text-white rounded-2xl p-6 sm:p-8 shadow-md">
+            <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6 border-b border-slate-700 pb-5">
+                <div>
+                    <span class="text-xs font-bold tracking-wider text-teal-400 uppercase">Theoretical Framework</span>
+                    <h3 class="text-xl sm:text-2xl font-bold mt-1">Salmivalli의 집단 따돌림 참여자 역할 이론</h3>
+                </div>
+                <p class="text-slate-300 text-sm max-w-md">
+                    학교폭력 예방의 핵심은 가해자 처벌뿐만 아니라, 다수를 차지하는 <strong class="text-teal-300">'방관자'를 '방어자'로 전환</strong>시키는 데 있습니다.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-navy-800/90 border border-slate-700 p-4 rounded-xl">
+                    <span class="inline-block px-2.5 py-0.5 rounded-md bg-rose-500/20 text-rose-300 text-xs font-bold mb-2">주도자 (Ringleader)</span>
+                    <p class="text-sm text-slate-300">괴롭힘을 최초로 기획하고 주도하며, 권력 지배 욕구가 강하고 공감 능력이 낮은 경향을 보입니다.</p>
+                </div>
+                <div class="bg-navy-800/90 border border-slate-700 p-4 rounded-xl">
+                    <span class="inline-block px-2.5 py-0.5 rounded-md bg-orange-500/20 text-orange-300 text-xs font-bold mb-2">조력자 (Assistant)</span>
+                    <p class="text-sm text-slate-300">주도자의 지시에 따라 피해자를 붙잡거나 직접 괴롭힘에 동참하며 집단 내 소속감을 얻으려 합니다.</p>
+                </div>
+                <div class="bg-navy-800/90 border border-slate-700 p-4 rounded-xl">
+                    <span class="inline-block px-2.5 py-0.5 rounded-md bg-amber-500/20 text-amber-300 text-xs font-bold mb-2">강화자 (Reinforcer)</span>
+                    <p class="text-sm text-slate-300">직접 폭력을 행사하지 않으나 웃거나 환호하며 구경함으로써 가해 행동에 정당성과 보상을 부여합니다.</p>
+                </div>
+                <div class="bg-navy-800/90 border border-slate-700 p-4 rounded-xl">
+                    <span class="inline-block px-2.5 py-0.5 rounded-md bg-slate-500/30 text-slate-300 text-xs font-bold mb-2">방관자 (Outsider)</span>
+                    <p class="text-sm text-slate-300">"내 일이 아니다"라며 침묵하거나 회피합니다. 암묵적 동조로 인식되어 피해자의 고립감을 심화시킵니다.</p>
+                </div>
+                <div class="bg-navy-800/90 border border-slate-700 p-4 rounded-xl">
+                    <span class="inline-block px-2.5 py-0.5 rounded-md bg-blue-500/20 text-blue-300 text-xs font-bold mb-2">피해자 (Victim)</span>
+                    <p class="text-sm text-slate-300">지속적 폭력 노출로 우울, 불안, 자기비난을 겪으며 학교 부적응 및 트라우마 위험에 놓입니다.</p>
+                </div>
+                <div class="bg-teal-900/50 border border-teal-500/40 p-4 rounded-xl">
+                    <span class="inline-block px-2.5 py-0.5 rounded-md bg-teal-500/30 text-teal-200 text-xs font-bold mb-2">★ 방어자 (Defender)</span>
+                    <p class="text-sm text-teal-100">피해자를 위로하고 가해 중단을 요구하며 교사에게 알리는 역할로, 학급 내 폭력 억제력이 가장 큽니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 사안 처리 프로세스 타임라인 (Step-by-Step Procedure) -->
+    <section id="process" class="py-16 sm:py-20 bg-slate-100/80 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-teal-600 font-bold text-sm tracking-wider uppercase">Standard Operating Procedure</span>
+                <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 mt-1 mb-3">학교폭력 사안 처리 5단계 프로세스</h2>
+                <p class="text-slate-600 text-sm sm:text-base">
+                    교사가 사안을 인지한 순간부터 사후 관리까지 「학교폭력예방법」에 따라 준수해야 하는 법정 절차입니다.
+                </p>
+            </div>
+
+            <!-- 타임라인 컨테이너 -->
+            <div class="relative max-w-4xl mx-auto">
+                <!-- 세로 연결선 -->
+                <div class="hidden sm:block absolute left-8 top-6 bottom-6 w-0.5 bg-teal-600/30"></div>
+
+                <div class="space-y-6">
+                    <!-- Step 1 -->
+                    <div class="relative flex flex-col sm:flex-row items-start gap-4 sm:gap-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-16 h-16 rounded-2xl bg-navy-900 text-white flex flex-col items-center justify-center shrink-0 z-10 shadow-sm">
+                            <span class="text-[10px] font-bold text-teal-400">STEP</span>
+                            <span class="text-xl font-extrabold leading-none">01</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                <h3 class="text-lg font-bold text-navy-900">사안 인지 및 초기 대응 (즉시 분리)</h3>
+                                <span class="px-2.5 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-semibold">법적 의무: 즉시 신고</span>
+                            </div>
+                            <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                                학교폭력 현장을 보거나 그 사실을 알게 된 교원은 <strong>지체 없이 학교장 및 전담기구에 신고</strong>해야 합니다. 피해학생의 안전 확보를 최우선으로 하며, 필요시 가해·피해 학생을 즉시 분리(최대 7일 이내)하여 추가 피해를 차단합니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative flex flex-col sm:flex-row items-start gap-4 sm:gap-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-16 h-16 rounded-2xl bg-navy-900 text-white flex flex-col items-center justify-center shrink-0 z-10 shadow-sm">
+                            <span class="text-[10px] font-bold text-teal-400">STEP</span>
+                            <span class="text-xl font-extrabold leading-none">02</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                <h3 class="text-lg font-bold text-navy-900">학교장 보고 및 전담기구 사안 조사</h3>
+                                <span class="px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold">객관적 사실 확인</span>
+                            </div>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                학교폭력 전담기구(교감, 전문상담교사, 보건교사, 책임교사 등) 및 학교폭력 전담조사관이 관련 학생·보호자 면담과 객관적 증거를 통해 6하 원칙에 따른 사안조사 보고서를 작성하고 보호자에게 사안 접수 사실을 통보합니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative flex flex-col sm:flex-row items-start gap-4 sm:gap-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-16 h-16 rounded-2xl bg-navy-900 text-white flex flex-col items-center justify-center shrink-0 z-10 shadow-sm">
+                            <span class="text-[10px] font-bold text-teal-400">STEP</span>
+                            <span class="text-xl font-extrabold leading-none">03</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                <h3 class="text-lg font-bold text-navy-900">학교장 긴급조치 (피해학생 보호 · 가해학생 선도)</h3>
+                                <span class="px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 text-xs font-semibold">법 제16조·제17조의4</span>
+                            </div>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                심의위원회 결정 전이라도 피해학생 보호가 시급할 경우 학교장이 직권으로 <strong>긴급보호조치</strong>(심리상담, 일시보호, 치료요양 등) 및 <strong>가해학생 긴급선도조치</strong>(접촉·협박 금지, 출석정지, 학급교체 등)를 시행할 수 있습니다.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative flex flex-col sm:flex-row items-start gap-4 sm:gap-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-16 h-16 rounded-2xl bg-teal-600 text-white flex flex-col items-center justify-center shrink-0 z-10 shadow-sm">
+                            <span class="text-[10px] font-bold text-teal-100">STEP</span>
+                            <span class="text-xl font-extrabold leading-none">04</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                <h3 class="text-lg font-bold text-navy-900">학교장 자체해결제 vs 교육지원청 심의위원회 요청</h3>
+                                <span class="px-2.5 py-1 rounded-full bg-teal-50 text-teal-700 text-xs font-semibold">핵심 분기점</span>
+                            </div>
+                            <p class="text-sm text-slate-600 leading-relaxed mb-3">
+                                전담기구 심의 결과 <strong>4가지 객관적 요건을 모두 충족</strong>하고, 피해학생 및 보호자가 심의위원회 개최를 원하지 않는 경우 <strong>학교장 자체해결</strong>로 종결합니다. 요건 미충족 시 교육지원청 학교폭력대책심의위원회에 심의를 요청합니다.
+                            </p>
+                            <div class="bg-slate-50 rounded-xl p-3.5 border border-slate-200 text-xs text-slate-700 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                <div><i class="fa-solid fa-check text-teal-600 mr-1.5"></i>2주 이상의 신체·정신적 치료 진단서 미발급</div>
+                                <div><i class="fa-solid fa-check text-teal-600 mr-1.5"></i>재산상 피해가 없거나 즉각 복구된 경우</div>
+                                <div><i class="fa-solid fa-check text-teal-600 mr-1.5"></i>학교폭력이 지속적이지 않은 경우</div>
+                                <div><i class="fa-solid fa-check text-teal-600 mr-1.5"></i>보복행위가 아닌 경우</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative flex flex-col sm:flex-row items-start gap-4 sm:gap-6 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                        <div class="w-16 h-16 rounded-2xl bg-navy-900 text-white flex flex-col items-center justify-center shrink-0 z-10 shadow-sm">
+                            <span class="text-[10px] font-bold text-teal-400">STEP</span>
+                            <span class="text-xl font-extrabold leading-none">05</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                                <h3 class="text-lg font-bold text-navy-900">조치 이행 · 생활기록부 기재 및 사후 관계 회복</h3>
+                                <span class="px-2.5 py-1 rounded-full bg-purple-50 text-purple-700 text-xs font-semibold">회복적 생활교육</span>
+                            </div>
+                            <p class="text-sm text-slate-600 leading-relaxed">
+                                심의위원회 의결에 따른 피해학생 보호조치(1~6호) 및 가해학생 선도조치(1호 서면사과 ~ 9호 퇴학)를 이행하고, 법령 기준에 따라 학교생활기록부에 기재합니다. 이후 담임·상담교사는 2차 피해 예방 및 학급 공동체 관계 회복 프로그램을 운영합니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. 예비 교사를 위한 미니 퀴즈 (Interactive Mini-Quiz) -->
+    <section id="quiz" class="py-16 sm:py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+            <span class="text-teal-600 font-bold text-sm tracking-wider uppercase">Self-Assessment Quiz</span>
+            <h2 class="text-2xl sm:text-3xl font-bold text-navy-900 mt-1 mb-3">예비 교사 핵심 역량 자가진단 퀴즈</h2>
+            <p class="text-slate-600 text-sm sm:text-base">
+                임용시험 및 실제 학교 현장에서 요구되는 법령과 교육학 이론 문제를 풀어보세요.
+            </p>
+        </div>
+
+        <div class="bg-white rounded-2xl border border-slate-200 shadow-md overflow-hidden">
+            <!-- 퀴즈 상단 진행 바 -->
+            <div class="bg-navy-900 px-6 py-4 flex items-center justify-between text-white">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-clipboard-question text-teal-400"></i>
+                    <span class="font-semibold text-sm sm:text-base" id="quiz-progress-text">문항 1 / 4</span>
+                </div>
+                <div class="text-xs sm:text-sm text-slate-300">
+                    현재 점수: <span id="quiz-score" class="font-bold text-teal-400">0</span>점
+                </div>
+            </div>
+            <div class="w-full bg-slate-200 h-1.5">
+                <div id="quiz-progress-bar" class="bg-teal-600 h-1.5 transition-all duration-300" style="width: 25%"></div>
+            </div>
+
+            <!-- 퀴즈 본문 영역 -->
+            <div id="quiz-body" class="p-6 sm:p-8">
+                <!-- JavaScript로 문항 렌더링 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="bg-navy-900 text-slate-400 py-10 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
+            <div class="flex items-center gap-2 text-white font-semibold">
+                <i class="fa-solid fa-graduation-cap text-teal-400"></i>
+                <span>교육학 교직소양: 학교폭력예방 및 학생의 이해</span>
+            </div>
+            <p class="text-center sm:text-right text-xs text-slate-400">
+                본 페이지는 예비 교사의 학습을 돕기 위한 교육용 강의 안내 자료입니다. (근거: 학교폭력예방 및 대책에 관한 법률)
+            </p>
+        </div>
+    </footer>
+
+    <!-- 인터랙션 스크립트 -->
+    <script>
+        // 1. 모바일 네비게이션 토글
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // 모바일 링크 클릭 시 메뉴 닫기
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+        });
+
+        // 2. 핵심 커리큘럼 모듈 데이터 및 탭 전환 로직
+        const modulesData = [
+            {
+                badge: "MODULE 01 | 1~3주차",
+                title: "학교폭력의 개념, 특성 및 최신 동향",
+                summary: "학교 내외에서 학생을 대상으로 발생한 상해, 폭행, 감금, 협박, 약취·유인, 명예훼손·모욕, 공갈, 강요·강제적인 심부름 및 성폭력, 따돌림, 사이버폭력 등에 의하여 신체·정신 또는 재산상의 피해를 수반하는 행위를 다룹니다.",
+                topics: [
+                    { title: "법률적 개념과 교육적 개념의 차이", desc: "법적 처벌 기준으로서의 요건과 학교 현장의 갈등·괴롭힘 현상 간의 간극 이해" },
+                    { title: "최신 학교폭력 발생 실태 분석", desc: "저연령화(초등학교 비중 증가), 언어폭력 및 사이버폭력(SNS·단톡방·딥페이크)의 일상화" },
+                    { title: "학교폭력의 주요 특성", desc: "힘의 불균형(비대칭성), 반복성과 지속성, 집단 동조성 및 은폐성 분석" }
+                ],
+                keywords: ["#힘의불균형", "#사이버폭력", "#관계적따돌림", "#저연령화", "#실태조사"]
+            },
+            {
+                badge: "MODULE 02 | 4~7주차",
+                title: "학교폭력의 발생 원인과 이론적 배경",
+                summary: "학교폭력을 개인의 일탈로만 환원하지 않고, 개인·가정·또래·학교·사회문화를 아우르는 다차원적 교육심리 및 사회학 이론으로 규명합니다.",
+                topics: [
+                    { title: "브론펜브레너(Bronfenbrenner)의 생태학적 체계이론", desc: "미시체계(가정·학급), 중간체계, 외체계(부모 직장·미디어), 거시체계(경쟁적 입시문화)의 상호작용" },
+                    { title: "반두라(Bandura)의 사회학습이론", desc: "가정 내 폭력, 대중매체 및 또래 집단의 공격적 모델 관찰과 모방, 대리강화 메커니즘" },
+                    { title: "좌절-공격 가설 및 사회정보처리모델(Dodge)", desc: "목표 좌절로 인한 공격 충동과 적대적 귀인 편향(상대의 의도를 악의적으로 해석하는 인지 오류)" }
+                ],
+                keywords: ["#생태학적체계이론", "#사회학습이론", "#적대적귀인편향", "#또래동조성", "#좌절공격가설"]
+            },
+            {
+                badge: "MODULE 03 | 8~11주차",
+                title: "학교폭력예방법과 사안 처리 절차",
+                summary: "「학교폭력예방 및 대책에 관한 법률」의 입법 취지와 교원의 법적 의무, 객관적이고 공정한 사안 처리 행정 절차를 사례 중심으로 학습합니다.",
+                topics: [
+                    { title: "학교폭력 전담기구 및 전담조사관 제도", desc: "사안 조사의 전문성과 공정성 확보를 위한 역할 분담 및 비밀누설 금지 의무" },
+                    { title: "학교장 자체해결제 요건과 한계", desc: "4가지 객관적 요건 충족 여부 판단 및 피해학생 측 부동의 시 심의위원회 이관 절차" },
+                    { title: "피해학생 보호조치(1~6호) 및 가해학생 선도조치(1~9호)", desc: "조치별 교육적 의미, 가해학생 조치의 학교생활기록부 기재 및 삭제(심의) 기준 이해" }
+                ],
+                keywords: ["#학교폭력예방법", "#학교장자체해결제", "#전담조사관", "#심의위원회", "#긴급조치"]
+            },
+            {
+                badge: "MODULE 04 | 12~15주차",
+                title: "예방 교육 및 회복적 정의 기반 생활지도",
+                summary: "사후 징계 중심의 응보적 패러다임을 넘어, 평화로운 학급 문화를 조성하고 갈등 당사자 간의 관계를 치유하는 실천적 지도 기법을 익힙니다.",
+                topics: [
+                    { title: "회복적 정의(Restorative Justice) 패러다임", desc: "'무슨 규칙을 어겼는가?'가 아닌 '누가 어떤 피해를 입었으며, 어떻게 회복할 것인가?'에 초점" },
+                    { title: "어울림 프로그램 및 사회정서학습(SEL)", desc: "공감, 감정조절, 의사소통, 갈등해결, 자기존중감, 학교폭력 인식·대처의 6대 핵심 역량 함양" },
+                    { title: "학급 내 방관자 개입 및 회복적 서클 운영", desc: "비폭력대화(NVC) 활용 상담 기법 및 공동체 신뢰 회복을 위한 학급 서클 실습" }
+                ],
+                keywords: ["#회복적정의", "#어울림프로그램", "#사회정서학습", "#비폭력대화", "#방어자양성"]
+            }
+        ];
+
+        function switchModule(index) {
+            // 탭 스타일 업데이트
+            document.querySelectorAll('.module-tab').forEach((btn, idx) => {
+                if (idx === index) {
+                    btn.classList.add('tab-active');
+                    btn.classList.remove('bg-white', 'text-slate-700', 'hover:bg-slate-50');
+                    btn.querySelector('span:first-child').classList.remove('text-teal-600');
+                } else {
+                    btn.classList.remove('tab-active');
+                    btn.classList.add('bg-white', 'text-slate-700', 'hover:bg-slate-50');
+                    btn.querySelector('span:first-child').classList.add('text-teal-600');
+                }
+            });
+
+            // 콘텐츠 렌더링
+            const data = modulesData[index];
+            const container = document.getElementById('module-content');
+            container.classList.remove('fade-in');
+            void container.offsetWidth; // 리플로우 트리거
+            container.classList.add('fade-in');
+
+            container.innerHTML = `
+                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-5 mb-6 border-b border-slate-200">
+                    <div>
+                        <span class="inline-block px-3 py-1 rounded-full bg-teal-50 text-teal-700 text-xs font-bold mb-2">${data.badge}</span>
+                        <h3 class="text-xl sm:text-2xl font-bold text-navy-900">${data.title}</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-1.5">
+                        ${data.keywords.map(kw => `<span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-600 text-xs font-medium">${kw}</span>`).join('')}
+                    </div>
+                </div>
+                <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-6 bg-slate-50 p-4 rounded-xl border border-slate-200/80">
+                    ${data.summary}
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    ${data.topics.map((topic, i) => `
+                        <div class="p-4 rounded-xl border border-slate-200 bg-white hover:border-teal-400 transition">
+                            <div class="text-xs font-bold text-teal-600 mb-1">핵심 주제 0${i + 1}</div>
+                            <h4 class="font-bold text-navy-900 text-base mb-2">${topic.title}</h4>
+                            <p class="text-sm text-slate-600 leading-relaxed">${topic.desc}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+        }
+
+        // 초기 모듈 0 로드
+        switchModule(0);
+
+        // 3. 예비 교사용 인터랙티브 퀴즈 데이터 및 로직
+        const quizQuestions = [
+            {
+                question: "「학교폭력예방 및 대책에 관한 법률」상 '학교장 자체해결제'를 적용하기 위한 4가지 객관적 요건에 해당하지 않는 것은?",
+                options: [
+                    "2주 이상의 신체적·정신적 치료를 요하는 진단서를 발급받지 않은 경우",
+                    "재산상 피해가 없거나 즉각 복구된 경우",
+                    "가해학생이 서면사과를 작성하고 담임교사에게 제출한 경우",
+                    "학교폭력이 지속적이지 않고 보복행위가 아닌 경우"
+                ],
+                answer: 2,
+                explanation: "학교장 자체해결제의 4대 객관적 요건은 ① 2주 이상 진단서 미발급, ② 재산상 피해 없음 또는 즉각 복구, ③ 지속적이지 않음, ④ 보복행위 아님입니다. 가해학생의 서면사과 제출 여부는 법정 객관적 요건에 포함되지 않습니다."
+            },
+            {
+                question: "브론펜브레너(Bronfenbrenner)의 생태학적 체계이론에 근거하여 학교폭력 원인을 분석할 때, '학부모의 과도한 입시 경쟁 압력과 폭력을 용인하는 사회적 분위기'가 해당하는 체계는?",
+                options: [
+                    "미시체계 (Microsystem)",
+                    "중간체계 (Mesosystem)",
+                    "외체계 (Exosystem)",
+                    "거시체계 (Macrosystem)"
+                ],
+                answer: 3,
+                explanation: "거시체계(Macrosystem)는 학생이 속한 문화권의 이데올로기, 가치관, 입시 위주 교육풍토, 법·제도 등 가장 광범위한 사회문화적 환경을 의미합니다."
+            },
+            {
+                question: "Salmivalli의 집단 따돌림 참여자 역할 이론에 기반할 때, 학급 내 학교폭력을 가장 효과적으로 억제하기 위한 교사의 예방 개입 전략으로 가장 적절한 것은?",
+                options: [
+                    "가해 주도자만을 별도 공간에 격리하여 엄벌주의 원칙을 강조한다.",
+                    "다수를 차지하는 방관자(Outsider)에게 공감 훈련과 개입 기술을 교육하여 방어자(Defender)로 전환한다.",
+                    "피해학생에게 전학을 권유하여 가해 집단과의 물리적 접촉을 영구 차단한다.",
+                    "학급 내 갈등이 드러나지 않도록 익명 실태조사를 최소화한다."
+                ],
+                answer: 1,
+                explanation: "Salmivalli에 따르면 집단 따돌림은 방관자들의 침묵과 강화자들의 동조 속에서 유지됩니다. 따라서 학급의 다수인 방관자가 피해자를 지지하고 폭력에 반대하는 '방어자' 역할을 수행하도록 역량을 기르는 것이 핵심 예방 전략입니다."
+            },
+            {
+                question: "기존의 '응보적 정의(Retributive Justice)'와 비교한 '회복적 정의(Restorative Justice)' 기반 생활지도의 핵심 질문으로 가장 옳은 것은?",
+                options: [
+                    "어떤 교칙과 법률을 위반했는가?",
+                    "누가 가해자이며 어떤 수준의 징계를 내려야 하는가?",
+                    "누가 어떤 피해를 입었으며, 깨어진 관계와 공동체를 어떻게 회복할 것인가?",
+                    "가해학생의 생활기록부에 몇 호 조치를 기재해야 공정한가?"
+                ],
+                answer: 2,
+                explanation: "회복적 정의는 규칙 위반에 대한 처벌(응보)보다 피해자의 상처 치유, 가해자의 진정한 책임 인정, 그리고 당사자와 공동체 간의 관계 회복을 최우선 가치로 삼습니다."
+            }
+        ];
+
+        let currentQIndex = 0;
+        let score = 0;
+        let answeredCurrent = false;
+
+        function renderQuiz() {
+            const qData = quizQuestions[currentQIndex];
+            const quizBody = document.getElementById('quiz-body');
+            const progressText = document.getElementById('quiz-progress-text');
+            const progressBar = document.getElementById('quiz-progress-bar');
+
+            progressText.textContent = `문항 ${currentQIndex + 1} / ${quizQuestions.length}`;
+            progressBar.style.width = `${((currentQIndex + 1) / quizQuestions.length) * 100}%`;
+            answeredCurrent = false;
+
+            quizBody.innerHTML = `
+                <div class="fade-in">
+                    <h3 class="text-lg sm:text-xl font-bold text-navy-900 leading-snug mb-6">
+                        <span class="text-teal-600 mr-1.5">Q${currentQIndex + 1}.</span>${qData.question}
+                    </h3>
+                    <div class="space-y-3" id="quiz-options">
+                        ${qData.options.map((opt, idx) => `
+                            <button onclick="selectAnswer(${idx})" class="quiz-opt-btn w-full text-left p-4 rounded-xl border border-slate-200 hover:border-teal-500 hover:bg-teal-50/40 transition flex items-start gap-3 group">
+                                <span class="w-7 h-7 rounded-lg bg-slate-100 group-hover:bg-teal-600 group-hover:text-white text-slate-700 font-bold text-sm flex items-center justify-center shrink-0 transition">
+                                    ${idx + 1}
+                                </span>
+                                <span class="text-sm sm:text-base text-slate-700 font-medium pt-0.5">${opt}</span>
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div id="quiz-feedback" class="hidden mt-6 p-4 sm:p-5 rounded-xl border"></div>
+                    <div class="mt-6 flex justify-end">
+                        <button id="next-q-btn" onclick="nextQuestion()" class="hidden px-6 py-2.5 rounded-xl bg-navy-900 hover:bg-teal-600 text-white font-semibold text-sm transition shadow-sm">
+                            ${currentQIndex < quizQuestions.length - 1 ? '다음 문항 <i class="fa-solid fa-arrow-right ml-1.5"></i>' : '결과 확인하기 <i class="fa-solid fa-flag-checkered ml-1.5"></i>'}
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function selectAnswer(selectedIdx) {
+            if (answeredCurrent) return;
+            answeredCurrent = true;
+
+            const qData = quizQuestions[currentQIndex];
+            const isCorrect = selectedIdx === qData.answer;
+            if (isCorrect) {
+                score += 25;
+                document.getElementById('quiz-score').textContent = score;
+            }
+
+            const buttons = document.querySelectorAll('.quiz-opt-btn');
+            buttons.forEach((btn, idx) => {
+                btn.disabled = true;
+                btn.classList.remove('hover:border-teal-500', 'hover:bg-teal-50/40');
+                const badge = btn.querySelector('span:first-child');
+
+                if (idx === qData.answer) {
+                    btn.classList.add('border-emerald-500', 'bg-emerald-50');
+                    badge.classList.remove('bg-slate-100', 'text-slate-700');
+                    badge.classList.add('bg-emerald-600', 'text-white');
+                } else if (idx === selectedIdx && !isCorrect) {
+                    btn.classList.add('border-rose-500', 'bg-rose-50');
+                    badge.classList.remove('bg-slate-100', 'text-slate-700');
+                    badge.classList.add('bg-rose-600', 'text-white');
+                } else {
+                    btn.classList.add('opacity-60');
+                }
+            });
+
+            const feedback = document.getElementById('quiz-feedback');
+            feedback.classList.remove('hidden');
+            if (isCorrect) {
+                feedback.classList.add('bg-emerald-50/80', 'border-emerald-200', 'text-emerald-950');
+                feedback.innerHTML = `
+                    <div class="font-bold text-emerald-700 mb-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-circle-check"></i> 정답입니다! (+25점)
+                    </div>
+                    <p class="text-sm text-slate-700 leading-relaxed">${qData.explanation}</p>
+                `;
+            } else {
+                feedback.classList.add('bg-rose-50/80', 'border-rose-200', 'text-rose-950');
+                feedback.innerHTML = `
+                    <div class="font-bold text-rose-700 mb-1 flex items-center gap-1.5">
+                        <i class="fa-solid fa-circle-xmark"></i> 오답입니다. 정답은 ${qData.answer + 1}번입니다.
+                    </div>
+                    <p class="text-sm text-slate-700 leading-relaxed">${qData.explanation}</p>
+                `;
+            }
+
+            document.getElementById('next-q-btn').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            if (currentQIndex < quizQuestions.length - 1) {
+                currentQIndex++;
+                renderQuiz();
+            } else {
+                showQuizSummary();
+            }
+        }
+
+        function showQuizSummary() {
+            const quizBody = document.getElementById('quiz-body');
+            let message = "";
+            if (score === 100) {
+                message = "완벽합니다! 예비 교사로서 학교폭력 법령과 교육학적 이론을 정확히 숙지하고 계십니다.";
+            } else if (score >= 75) {
+                message = "우수한 성적입니다! 핵심 개념을 잘 이해하고 있으며, 틀린 문항의 해설을 한 번 더 점검해 보세요.";
+            } else {
+                message = "좋은 시작입니다! 위의 '핵심 커리큘럼'과 '사안처리 절차' 섹션을 복습한 뒤 다시 도전해 보세요.";
+            }
+
+            quizBody.innerHTML = `
+                <div class="text-center py-6 fade-in">
+                    <div class="w-16 h-16 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center text-3xl mx-auto mb-4">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-navy-900 mb-2">진단 완료! 최종 점수: <span class="text-teal-600">${score}점</span> / 100점</h3>
+                    <p class="text-slate-600 text-sm sm:text-base max-w-lg mx-auto mb-8 leading-relaxed">
+                        ${message}
+                    </p>
+                    <button onclick="restartQuiz()" class="px-6 py-3 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm sm:text-base transition shadow-sm">
+                        <i class="fa-solid fa-rotate-right mr-2"></i> 퀴즈 다시 풀기
+                    </button>
+                </div>
+            `;
+        }
+
+        function restartQuiz() {
+            currentQIndex = 0;
+            score = 0;
+            document.getElementById('quiz-score').textContent = '0';
+            renderQuiz();
+        }
+
+        // 초기 퀴즈 렌더링
+        renderQuiz();
+    </script>
+</body>
+</html>
